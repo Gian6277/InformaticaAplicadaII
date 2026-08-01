@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informática Aplicada II — CTT Marketing </title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --negro: #111111;
+  --blanco: #ffffff;
+  --rojo: #e91e8c;
+  --rojo-suave: #fdf1f8;
+  --gris: #666;
+  --gris-claro: #eeeeee;
+  --borde: #e0e0e0;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--blanco);
+  color: var(--negro);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  background: var(--blanco);
+  padding: 64px 56px 52px;
+  border-bottom: 3px solid var(--negro);
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: 'CTT Marketing';
+  position: absolute;
+  right: -8px;
+  bottom: 16px;
+  font-family: 'Syne', sans-serif;
+  font-size: 96px;
+  font-weight: 800;
+  color: rgba(233, 30, 140, 0.07);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.breadcrumb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gris);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.breadcrumb span { color: var(--rojo); }
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5.5vw, 70px);
+  font-weight: 800;
+  line-height: 1.0;
+  max-width: 700px;
+  margin-bottom: 20px;
+  color: var(--negro);
+}
+h1 em {
+  color: var(--rojo);
+  font-style: normal;
+}
+
+.header-desc {
+  color: var(--gris);
+  font-size: 16px;
+  font-weight: 300;
+  max-width: 500px;
+  line-height: 1.65;
+  margin-bottom: 40px;
+}
+
+.header-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pill {
+  border: 1px solid var(--borde);
+  color: var(--gris);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 5px 14px;
+  letter-spacing: 0.06em;
+}
+.pill.act {
+  border-color: var(--rojo);
+  color: var(--rojo);
+  background: var(--rojo-suave);
+}
+
+/* MAIN */
+main {
+  padding: 56px 56px 96px;
+  max-width: 980px;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #aaa;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--borde);
+  max-width: 240px;
+}
+
+/* LISTA DE CLASES */
+.clases-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bloque-titulo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #bbb;
+  padding: 20px 0 10px;
+  border-top: 1px solid var(--borde);
+  margin-top: 6px;
+}
+.bloque-titulo:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.clase-card {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--negro);
+  border: 1px solid var(--borde);
+  background: var(--blanco);
+  transition: all 0.18s ease;
+}
+.clase-card:hover {
+  border-color: var(--rojo);
+  background: var(--rojo-suave);
+}
+.clase-card:hover .clase-num {
+  background: var(--rojo);
+  color: var(--blanco);
+}
+.clase-card:hover .clase-titulo {
+  color: var(--rojo);
+}
+.clase-card:hover .clase-arrow {
+  transform: translateX(5px);
+  color: var(--rojo);
+}
+
+.clase-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  background: var(--gris-claro);
+  color: #aaa;
+  min-width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-right: 1px solid var(--borde);
+  transition: background 0.18s, color 0.18s;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.clase-info {
+  padding: 0 24px;
+  flex: 1;
+}
+.clase-titulo {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  line-height: 1.2;
+  transition: color 0.18s;
+}
+.clase-sub {
+  font-size: 13px;
+  color: #999;
+  font-weight: 300;
+}
+
+.clase-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-right: 24px;
+  flex-shrink: 0;
+}
+.clase-tag-soft {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #bbb;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--borde);
+  padding: 3px 9px;
+}
+.clase-arrow {
+  color: #ccc;
+  font-size: 18px;
+  transition: transform 0.18s, color 0.18s;
+}
+
+
+
+/* FOOTER */
+footer {
+  border-top: 3px solid var(--negro);
+  padding: 28px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--blanco);
+}
+.footer-left {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 0.06em;
+}
+.footer-right {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #ccc;
+}
+
+@media (max-width: 600px) {
+  header, main, footer { padding-left: 20px; padding-right: 20px; }
+  .clase-meta { display: none; }
+  .clase-num { min-width: 52px; height: 60px; font-size: 11px; }
+  h1 { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="breadcrumb">
+    DGETP
+    <span>/</span>
+    CTT Marketing
+    <span>/</span>
+    Plan 2019
+  </div>
+
+  <h1>Informática<br><em>Aplicada II</em></h1>
+  <p class="header-desc">Materiales de clase</p>
+
+  
+</header>
+
+<main>
+
+  <div class="section-label">Materiales por clase</div>
+
+  <div class="clases-lista">
+
+    <div class="bloque-titulo">Unidad 1 — Redes Sociales</div>
+
+    <a href="clase1-redessociales.html" class="clase-card" target="_blank">
+      <div class="clase-num">01</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Redes Sociales</div>
+        <div class="clase-sub">Conceptos</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+     <a href="clase2-redessociales.html" class="clase-card inactiva" target="_blank">
+      <div class="clase-num">02</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Derechos de autor</div>
+        <div class="clase-sub">Conceptos en distintos ámbitos</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+<!--
+    <a href="clase15-redes.html" class="clase-card inactiva" target="_blank">
+      <div class="clase-num">03</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Uso y publicación en redes sociales</div>
+        <div class="clase-sub">Próximamente</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase16-redes.html" class="clase-card inactiva" target="_blank">
+      <div class="clase-num">04</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Netiquette. Cierre del curso</div>
+        <div class="clase-sub">Próximamente</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <div class="bloque-titulo">Unidad 2 — Marketing Web</div>
+
+    <a href="clase9-marketingweb.html" class="clase-card" target="_blank">
+      <div class="clase-num">05</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Internet, conceptos básicos</div>
+        <div class="clase-sub">URL, IP, hiperenlaces, buscadores y PageRank</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase10-marketingweb.html" class="clase-card" target="_blank">
+      <div class="clase-num">06</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Componentes de una página y de un sitio web</div>
+        <div class="clase-sub">Header, body, footer, menú y sitemap</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase11-marketingweb.html" class="clase-card" target="_blank">
+      <div class="clase-num">07</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Diseño one click</div>
+        <div class="clase-sub">Plataformas sin código y buenas prácticas</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase12-marketingweb.html" class="clase-card" target="_blank">
+      <div class="clase-num">08</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Publicación web (página, sitio o revista digital)</div>
+        <div class="clase-sub">Dominio, checklist y publicación final</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <div class="bloque-titulo">Unidad 3 — Coreldraw</div>
+
+    <a href="clase17-coreldraw.html" class="clase-card inactiva" target="_blank">
+      <div class="clase-num">09</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Introducción a CorelDRAW y Gráficos Vectoriales</div>
+        <div class="clase-sub">Curvas Bézier</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase18-coreldraw.html" class="clase-card inactiva" target="_blank">
+      <div class="clase-num">10</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Color y Relleno</div>
+        <div class="clase-sub">Próximamente</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase19-coreldraw.html" class="clase-card inactiva" target="_blank">
+      <div class="clase-num">11</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Texto, Tipografía y Organización de Objetos</div>
+        <div class="clase-sub">Próximamente</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase20-coreldraw.html" class="clase-card inactiva" target="_blank">
+      <div class="clase-num">12</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Proyecto Integrador: Logo y Exportación</div>
+        <div class="clase-sub">Próximamente</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <div class="bloque-titulo">Unidad 4 — Videos</div>
+
+    <a href="clase1-videos.html" class="clase-card" target="_blank">
+      <div class="clase-num">13</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Presentación del curso y Guión</div>
+        <div class="clase-sub">Producción de video, idea, sinopsis y guión</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase2-videos.html" class="clase-card" target="_blank">
+      <div class="clase-num">14</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Grabación: Compresión y Normas</div>
+        <div class="clase-sub">Formatos de compresión y normas técnicas de grabación</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase3-videos.html" class="clase-card" target="_blank">
+      <div class="clase-num">15</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Edición de Video I</div>
+        <div class="clase-sub">Selección de material y edición básica</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase4-videos.html" class="clase-card" target="_blank">
+      <div class="clase-num">16</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Edición de Video II y Publicación</div>
+        <div class="clase-sub">Efectos, sonido y publicación del video final</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a> -->
+
+    <!-- <div class="bloque-titulo">Unidad 5 — Fotografía Digital</div>
+
+    <a href="clase5-fotografia.html" class="clase-card" target="_blank">
+      <div class="clase-num">17</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Conceptos generales, cámaras y formatos</div>
+        <div class="clase-sub">Tipos de cámara, sensores, RAW vs. JPEG</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase6-fotografia.html" class="clase-card" target="_blank">
+      <div class="clase-num">18</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Iluminación</div>
+        <div class="clase-sub">Luz natural y artificial, tres puntos de luz, hora dorada</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase7-fotografia.html" class="clase-card" target="_blank">
+      <div class="clase-num">19</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Ambiente de trabajo</div>
+        <div class="clase-sub">Fondos, composición y styling de producto</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="clase8-fotografia.html" class="clase-card" target="_blank">
+      <div class="clase-num">20</div>
+      <div class="clase-info">
+        <div class="clase-titulo">Retoque Fotográfico Básico y videos con fotos</div>
+        <div class="clase-sub">Ajustes básicos, herramientas de retoque y slideshow</div>
+      </div>
+      <div class="clase-meta">
+        <div class="clase-arrow">→</div>
+      </div>
+    </a> -->
+
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-left"> · DGETP — Informática Aplicada II · Plan 2019 · CTT Marketing · Docente: Gianna Giupponi</div>
+</footer>
+
+</body>
+</html>

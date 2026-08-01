@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redes Sociales: Conceptos</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f4ef;
+  --negro: #111010;
+  --acento: #e91e8c;
+  --acento2: #2b6dd9;
+  --amarillo: #f0c419;
+  --gris: #6b6560;
+  --gris-claro: #e8e3db;
+  --blanco: #ffffff;
+  --verde: #2a7a4b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--negro);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* NAV */
+.topbar {
+  background: var(--negro);
+  color: #aaa;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  letter-spacing: 0.05em;
+}
+.topbar a { color: var(--amarillo); text-decoration: none; }
+.topbar-links { display: flex; gap: 20px; }
+.topbar-links a { color: #aaa; text-decoration: none; transition: color 0.2s; }
+.topbar-links a:hover { color: var(--amarillo); }
+
+/* HERO */
+.hero {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 72px 40px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '1';
+  position: absolute;
+  right: 32px;
+  bottom: -40px;
+  font-family: 'Syne', sans-serif;
+  font-size: 220px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+.clase-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 5px 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 800;
+  line-height: 1.05;
+  max-width: 680px;
+  margin-bottom: 16px;
+}
+.hero h1 em { color: var(--amarillo); font-style: normal; }
+.hero-sub {
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 300;
+  max-width: 520px;
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.hm {
+  border-top: 2px solid var(--acento);
+  padding-top: 8px;
+  min-width: 100px;
+}
+.hm-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.1em; }
+.hm-val { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--blanco); margin-top: 2px; }
+
+/* ÍNDICE */
+.indice-wrap {
+  background: var(--gris-claro);
+  border-left: 4px solid var(--acento);
+  padding: 28px 32px;
+  margin: 48px 40px;
+}
+.indice-wrap h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gris);
+  margin-bottom: 12px;
+}
+.indice-wrap ol {
+  padding-left: 20px;
+}
+.indice-wrap ol li {
+  margin-bottom: 4px;
+}
+.indice-wrap a {
+  color: var(--acento2);
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Source Serif 4', serif;
+  transition: color 0.2s;
+}
+.indice-wrap a:hover { color: var(--acento); text-decoration: underline; }
+
+/* CONTENT */
+.content {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px 100px;
+}
+
+/* SECCIONES */
+.seccion {
+  margin-top: 64px;
+}
+.seccion-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--acento);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+.seccion h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--negro);
+  border-bottom: 3px solid var(--negro);
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+}
+.seccion h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--negro);
+  margin: 28px 0 10px;
+}
+.seccion p { margin-bottom: 16px; color: #2a2520; }
+
+/* CALLOUT */
+.callout {
+  border-left: 4px solid var(--acento2);
+  background: #eef3fd;
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 0 4px 4px 0;
+}
+.callout.amarillo { border-color: var(--amarillo); background: #fffbea; }
+.callout.verde { border-color: var(--verde); background: #edf7f1; }
+.callout.rojo { border-color: var(--acento); background: #fdf1f8; }
+.callout-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--acento2);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.callout.amarillo .callout-label { color: #9a7000; }
+.callout.verde .callout-label { color: var(--verde); }
+.callout.rojo .callout-label { color: var(--acento); }
+.callout p { margin-bottom: 0; font-size: 15px; }
+
+/* TABLA */
+.atajos-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 32px;
+  font-size: 14px;
+}
+.atajos-tabla thead tr {
+  background: var(--negro);
+  color: var(--blanco);
+}
+.atajos-tabla thead th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 14px;
+  text-align: left;
+}
+.atajos-tabla tbody tr:nth-child(even) { background: var(--gris-claro); }
+.atajos-tabla tbody tr:hover { background: #e0dbd3; }
+.atajos-tabla td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+.atajos-tabla td:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+kbd {
+  display: inline-block;
+  background: var(--negro);
+  color: var(--amarillo);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border-bottom: 2px solid #444;
+  white-space: nowrap;
+}
+
+/* LISTA */
+ul.ul-custom {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 24px;
+}
+ul.ul-custom li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  border-bottom: 1px solid var(--gris-claro);
+  font-size: 15.5px;
+}
+ul.ul-custom li:last-child { border-bottom: none; }
+ul.ul-custom li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--acento);
+  font-size: 13px;
+}
+
+/* CONCEPTO BOX */
+.concepto {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 22px 24px;
+  margin: 20px 0;
+}
+.concepto-titulo {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--amarillo);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.concepto p { color: #ccc; font-size: 14.5px; margin-bottom: 0; line-height: 1.65; }
+
+/* PASO A PASO */
+.pasos {
+  counter-reset: paso;
+  margin: 20px 0;
+}
+.paso {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+}
+.paso-n {
+  counter-increment: paso;
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.paso-n::before { content: counter(paso); }
+.paso p { margin-bottom: 0; font-size: 15px; line-height: 1.6; }
+
+/* EJERCICIO */
+.ejercicio {
+  border: 2px solid var(--negro);
+  margin: 32px 0;
+}
+.ejercicio-header {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ej-badge {
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  flex-shrink: 0;
+}
+.ejercicio-header h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+.ejercicio-body { padding: 20px 20px 24px; }
+.ejercicio-body p { font-size: 15px; margin-bottom: 12px; }
+
+/* ENTREGA */
+.entrega {
+  background: var(--acento2);
+  color: var(--blanco);
+  padding: 16px 22px;
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.entrega-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.entrega-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 4px;
+}
+.entrega p { font-size: 14px; color: rgba(255,255,255,0.9); margin-bottom: 0; }
+.entrega code {
+  background: rgba(0,0,0,0.3);
+  padding: 1px 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+/* RESUMEN FINAL */
+.resumen {
+  background: var(--amarillo);
+  padding: 28px 32px;
+  margin-top: 48px;
+}
+.resumen h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--negro);
+  margin-bottom: 12px;
+}
+.resumen ul { padding-left: 20px; }
+.resumen li { font-size: 14.5px; color: #2a2000; margin-bottom: 4px; }
+
+/* FOOTER */
+footer {
+  background: var(--negro);
+  color: #555;
+  text-align: center;
+  padding: 28px 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+footer span { color: var(--amarillo); }
+
+@media (max-width: 600px) {
+  .hero, .content { padding-left: 20px; padding-right: 20px; }
+  .indice-wrap { margin: 32px 20px; }
+  .topbar-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span><a href="index.html">← Inicio</a></span>
+</div>
+
+<header class="hero">
+  
+  <h1>Redes Sociales:<br><em>Conceptos</em></h1>
+  <p class="hero-sub">CTT Marketing - Informática Aplicada II</p>
+  <div class="hero-meta">
+    <div class="hm">
+      
+    </div>
+  </div>
+</header>
+
+<div class="indice-wrap">
+  <h3>Contenidos</h3>
+  <ol>
+    <li><a href="#s1">¿Qué es una red social?</a></li>
+    <li><a href="#s2">Tipos de redes sociales</a></li>
+    <li><a href="#s3">Definir audiencia y objetivos</a></li>
+    <li><a href="#s4">El algoritmo: cómo decide qué mostrar</a></li>
+    <li><a href="#s5">Métricas básicas</a></li>
+    <li><a href="#s6">Ejercicios</a></li>
+  </ol>
+</div>
+
+<main class="content">
+
+<!-- S1 -->
+<section class="seccion" id="s1">
+  <div class="seccion-num">Sección 01</div>
+  <h2>¿Qué es una red social?</h2>
+
+  <p>Una red social es una plataforma digital donde las personas crean perfiles, publican contenido y se conectan entre sí a través de seguimientos, comentarios y mensajes. Para el Marketing, son hoy uno de los canales principales para llegar a una audiencia de forma directa y medible.</p>
+
+  <p>A diferencia de un sitio web propio, en una red social la marca no tiene control total sobre las reglas: el algoritmo, el formato de contenido y los cambios de la plataforma pueden afectar el alcance en cualquier momento.</p>
+
+  <div class="callout amarillo">
+    <div class="callout-label">💡 Terreno alquilado</div>
+    <p>Se suele decir que el sitio web propio es "terreno propio" y las redes sociales son "terreno alquilado": conviene usar las redes para atraer gente, pero sin depender exclusivamente de ellas.</p>
+  </div>
+</section>
+
+<!-- S2 -->
+<section class="seccion" id="s2">
+  <div class="seccion-num">Sección 02</div>
+  <h2>Tipos de redes sociales</h2>
+
+  <table class="atajos-tabla">
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Ejemplos</th>
+        <th>Uso típico en Marketing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Visuales / de imagen</td><td>Instagram, Pinterest</td><td>Fotografía de producto, estilo de vida</td></tr>
+      <tr><td>De video corto</td><td>TikTok, Reels, YouTube Shorts</td><td>Contenido de entretenimiento y viral</td></tr>
+      <tr><td>De video largo</td><td>YouTube</td><td>Tutoriales, reseñas, contenido educativo</td></tr>
+      <tr><td>Profesionales</td><td>LinkedIn</td><td>Marca empleadora, B2B, contenido corporativo</td></tr>
+      <tr><td>De mensajería</td><td>WhatsApp Business</td><td>Atención al cliente, ventas directas</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">💡 No hay que estar en todas</div>
+    <p>Una marca no necesita estar presente en todas las redes: conviene elegir las que efectivamente usa su público objetivo y hacerlo bien, en vez de estar en todas de forma mediocre.</p>
+  </div>
+</section>
+
+<!-- S3 -->
+<section class="seccion" id="s3">
+  <div class="seccion-num">Sección 03</div>
+  <h2>Definir audiencia y objetivos</h2>
+
+  <p>Antes de publicar cualquier contenido, hay que tener claro para quién se publica y qué se busca lograr.</p>
+
+  <div class="concepto">
+    <div class="concepto-titulo">Buyer persona</div>
+    <p>Un perfil semi-ficticio del cliente ideal: edad, intereses, problemas que busca resolver. Ayuda a decidir qué tono y qué contenido usar.</p>
+  </div>
+
+  <div class="concepto">
+    <div class="concepto-titulo">Objetivos de la publicación</div>
+    <p>Cada publicación puede buscar distintas cosas: reconocimiento de marca, generar interacción (likes/comentarios), llevar tráfico al sitio web, o generar ventas directas. El objetivo define cómo se mide el éxito.</p>
+  </div>
+
+  <div class="callout verde">
+    <div class="callout-label">✅ Regla de oro</div>
+    <p>Antes de publicar cualquier contenido, conviene preguntarse: ¿para quién es esto, y qué quiero que haga después de verlo?</p>
+  </div>
+</section>
+
+<!-- S4 -->
+<section class="seccion" id="s4">
+  <div class="seccion-num">Sección 04</div>
+  <h2>El algoritmo: cómo decide qué mostrar</h2>
+
+  <p>El algoritmo es el sistema que cada red social usa para decidir qué contenido le muestra a cada persona, entre todo lo que podría mostrarle.</p>
+
+  <ul class="ul-custom">
+    <li><strong>Interacción temprana:</strong> los primeros minutos después de publicar (likes, comentarios, tiempo de visualización) suelen definir si el contenido se muestra a más gente</li>
+    <li><strong>Retención:</strong> cuánto tiempo se queda la persona viendo el contenido, especialmente en video</li>
+    <li><strong>Relevancia:</strong> qué tan parecido es el contenido a lo que esa persona suele interactuar</li>
+  </ul>
+
+  <div class="callout amarillo">
+    <div class="callout-label">💡 No hay una fórmula secreta</div>
+    <p>Cada plataforma ajusta constantemente su algoritmo y no publica los detalles exactos. Lo que sí se sabe con certeza es que el contenido que genera interacción real (no comprada) tiende a alcanzar a más personas.</p>
+  </div>
+</section>
+
+<!-- S5 -->
+<section class="seccion" id="s5">
+  <div class="seccion-num">Sección 05</div>
+  <h2>Métricas básicas</h2>
+
+  <table class="atajos-tabla">
+    <thead>
+      <tr>
+        <th>Métrica</th>
+        <th>Qué mide</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Alcance (reach)</td><td>Cuántas personas distintas vieron el contenido</td></tr>
+      <tr><td>Impresiones</td><td>Cuántas veces se mostró el contenido en total (una persona puede verlo más de una vez)</td></tr>
+      <tr><td>Engagement</td><td>Interacciones totales (likes, comentarios, compartidos) en relación al alcance</td></tr>
+      <tr><td>Tasa de conversión</td><td>Qué porcentaje de las personas que vieron el contenido realizó la acción buscada (compra, clic, registro)</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- S6 EJERCICIOS -->
+<section class="seccion" id="s6">
+  <div class="seccion-num">Sección 06</div>
+  <h2>Ejercicios de la clase</h2>
+
+  <div class="ejercicio">
+    <div class="ejercicio-header">
+      <span class="ej-badge">Ejercicio 1</span>
+      <h4>Buyer persona de tu marca</h4>
+    </div>
+    <div class="ejercicio-body">
+      <p>Vas a definir el buyer persona de una marca inventada.</p>
+      <div class="pasos">
+        <div class="paso"><span class="paso-n"></span><p>Definí edad, intereses y qué problema o necesidad busca resolver tu cliente ideal.</p></div>
+        <div class="paso"><span class="paso-n"></span><p>Elegí, justificando por qué, en qué 2 redes sociales tendría más sentido publicar para llegar a esa persona.</p></div>
+        <div class="paso"><span class="paso-n"></span><p>Guardá el documento como <code>tuapellido_buyer_persona.docx</code></p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <div class="ejercicio-header">
+      <span class="ej-badge">Ejercicio 2</span>
+      <h4>Análisis de una publicación real</h4>
+    </div>
+    <div class="ejercicio-body">
+      <p>Vas a analizar una publicación real de una marca en redes sociales.</p>
+      <div class="pasos">
+        <div class="paso"><span class="paso-n"></span><p>Elegí una publicación de una marca que sigas en redes sociales, sacá una captura.</p></div>
+        <div class="paso"><span class="paso-n"></span><p>Identificá cuál parece ser su objetivo (reconocimiento, interacción, venta).</p></div>
+        <div class="paso"><span class="paso-n"></span><p>Redactá un párrafo explicando por qué creés que esa publicación funciona (o no) para lograr ese objetivo.</p></div>
+        <div class="paso"><span class="paso-n"></span><p>Guardá el documento como <code>tuapellido_analisis_publicacion.docx</code></p></div>
+      </div>
+      <div class="entrega">
+        <span class="entrega-icon">📁</span>
+        <div>
+          <div class="entrega-label">Entrega de la clase</div>
+          <p>Subí a Google Classroom: <code>tuapellido_buyer_persona.docx</code> + <code>tuapellido_analisis_publicacion.docx</code></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="resumen">
+  <h3>✅ Lo que aprendiste hoy</h3>
+  <ul>
+    <li>Qué es una red social y su rol en el Marketing</li>
+    <li>Los distintos tipos de redes sociales y su uso típico</li>
+    <li>Qué es un buyer persona y por qué definirlo antes de publicar</li>
+    <li>Cómo funciona el algoritmo, en líneas generales</li>
+    <li>Las métricas básicas para medir el desempeño de una publicación</li>
+  </ul>
+</div>
+</main>
+
+<footer>
+  Informática Aplicada II · CTT Marketing · Plan 2019 · Docente: Gianna Giupponi
+</footer>
+
+</body>
+</html>

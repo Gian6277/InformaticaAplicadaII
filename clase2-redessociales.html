@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Derechos de Autor</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f4ef;
+  --negro: #111010;
+  --acento: #e91e8c;
+  --acento2: #2b6dd9;
+  --amarillo: #2dd4bf;
+  --gris: #6b6560;
+  --gris-claro: #e8e3db;
+  --blanco: #ffffff;
+  --verde: #2a7a4b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--negro);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* NAV */
+.topbar {
+  background: var(--negro);
+  color: #aaa;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  letter-spacing: 0.05em;
+}
+.topbar a { color: var(--amarillo); text-decoration: none; }
+.topbar-links { display: flex; gap: 20px; }
+.topbar-links a { color: #aaa; text-decoration: none; transition: color 0.2s; }
+.topbar-links a:hover { color: var(--amarillo); }
+
+/* HERO */
+.hero {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 72px 40px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '2';
+  position: absolute;
+  right: 32px;
+  bottom: -40px;
+  font-family: 'Syne', sans-serif;
+  font-size: 220px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+.clase-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 5px 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 800;
+  line-height: 1.05;
+  max-width: 680px;
+  margin-bottom: 16px;
+}
+.hero h1 em { color: var(--amarillo); font-style: normal; }
+.hero-sub {
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 300;
+  max-width: 520px;
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.hm {
+  border-top: 2px solid var(--acento);
+  padding-top: 8px;
+  min-width: 100px;
+}
+.hm-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.1em; }
+.hm-val { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--blanco); margin-top: 2px; }
+
+/* ÍNDICE */
+.indice-wrap {
+  background: var(--gris-claro);
+  border-left: 4px solid var(--acento);
+  padding: 28px 32px;
+  margin: 48px 40px;
+}
+.indice-wrap h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gris);
+  margin-bottom: 12px;
+}
+.indice-wrap ol {
+  padding-left: 20px;
+}
+.indice-wrap ol li {
+  margin-bottom: 4px;
+}
+.indice-wrap a {
+  color: var(--acento2);
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Source Serif 4', serif;
+  transition: color 0.2s;
+}
+.indice-wrap a:hover { color: var(--acento); text-decoration: underline; }
+
+/* CONTENT */
+.content {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px 100px;
+}
+
+/* SECCIONES */
+.seccion {
+  margin-top: 64px;
+}
+.seccion-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--acento);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+.seccion h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--negro);
+  border-bottom: 3px solid var(--negro);
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+}
+.seccion h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--negro);
+  margin: 28px 0 10px;
+}
+.seccion p { margin-bottom: 16px; color: #2a2520; }
+
+/* CALLOUT */
+.callout {
+  border-left: 4px solid var(--acento2);
+  background: #eef3fd;
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 0 4px 4px 0;
+}
+.callout.amarillo { border-color: var(--amarillo); background: #e6fbf9; }
+.callout.verde { border-color: var(--verde); background: #edf7f1; }
+.callout.rojo { border-color: var(--acento); background: #fdf1f8; }
+.callout-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--acento2);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.callout.amarillo .callout-label { color: #0f766e; }
+.callout.verde .callout-label { color: var(--verde); }
+.callout.rojo .callout-label { color: var(--acento); }
+.callout p { margin-bottom: 0; font-size: 15px; }
+
+/* TABLA */
+.atajos-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 32px;
+  font-size: 14px;
+}
+.atajos-tabla thead tr {
+  background: var(--negro);
+  color: var(--blanco);
+}
+.atajos-tabla thead th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 14px;
+  text-align: left;
+}
+.atajos-tabla tbody tr:nth-child(even) { background: var(--gris-claro); }
+.atajos-tabla tbody tr:hover { background: #e0dbd3; }
+.atajos-tabla td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+.atajos-tabla td:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+kbd {
+  display: inline-block;
+  background: var(--negro);
+  color: var(--amarillo);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border-bottom: 2px solid #444;
+  white-space: nowrap;
+}
+
+/* LISTA */
+ul.ul-custom {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 24px;
+}
+ul.ul-custom li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  border-bottom: 1px solid var(--gris-claro);
+  font-size: 15.5px;
+}
+ul.ul-custom li:last-child { border-bottom: none; }
+ul.ul-custom li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--acento);
+  font-size: 13px;
+}
+
+/* CONCEPTO BOX */
+.concepto {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 22px 24px;
+  margin: 20px 0;
+}
+.concepto-titulo {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--amarillo);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.concepto p { color: #ccc; font-size: 14.5px; margin-bottom: 0; line-height: 1.65; }
+
+/* PASO A PASO */
+.pasos {
+  counter-reset: paso;
+  margin: 20px 0;
+}
+.paso {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+}
+.paso-n {
+  counter-increment: paso;
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.paso-n::before { content: counter(paso); }
+.paso p { margin-bottom: 0; font-size: 15px; line-height: 1.6; }
+
+/* EJERCICIO */
+.ejercicio {
+  border: 2px solid var(--negro);
+  margin: 32px 0;
+}
+.ejercicio-header {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ej-badge {
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  flex-shrink: 0;
+}
+.ejercicio-header h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+.ejercicio-body { padding: 20px 20px 24px; }
+.ejercicio-body p { font-size: 15px; margin-bottom: 12px; }
+
+/* ENTREGA */
+.entrega {
+  background: var(--acento2);
+  color: var(--blanco);
+  padding: 16px 22px;
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.entrega-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.entrega-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 4px;
+}
+.entrega p { font-size: 14px; color: rgba(255,255,255,0.9); margin-bottom: 0; }
+.entrega code {
+  background: rgba(0,0,0,0.3);
+  padding: 1px 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+/* RESUMEN FINAL */
+.resumen {
+  background: var(--amarillo);
+  padding: 28px 32px;
+  margin-top: 48px;
+}
+.resumen h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--negro);
+  margin-bottom: 12px;
+}
+.resumen ul { padding-left: 20px; }
+.resumen li { font-size: 14.5px; color: #043a37; margin-bottom: 4px; }
+
+/* FOOTER */
+footer {
+  background: var(--negro);
+  color: #555;
+  text-align: center;
+  padding: 28px 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+footer span { color: var(--amarillo); }
+
+@media (max-width: 600px) {
+  .hero, .content { padding-left: 20px; padding-right: 20px; }
+  .indice-wrap { margin: 32px 20px; }
+  .topbar-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span><a href="index.html">← Inicio</a></span>
+</div>
+
+<header class="hero">
+  
+  <h1>Derechos<br><em>de Autor</em></h1>
+  <p class="hero-sub">CTT Marketing - Informática Aplicada II</p>
+  <div class="hero-meta">
+    <div class="hm">
+     
+  </div>
+</header>
+
+<div class="indice-wrap">
+  <h3>Contenidos</h3>
+  <ol>
+    <li><a href="#s1">¿Qué protege el derecho de autor?</a></li>
+    <li><a href="#s2">Tipos de licencias</a></li>
+    <li><a href="#s3">Bancos de contenido libre de derechos</a></li>
+    <li><a href="#s4">Uso de música en redes sociales</a></li>
+    <li><a href="#s5">Uso de imagen de terceros</a></li>
+    <li><a href="#s6">Ejercicios</a></li>
+  </ol>
+</div>
+
+<main class="content">
+
+<!-- S1 -->
+<section class="seccion" id="s1">
+  <div class="seccion-num">Sección 01</div>
+  <h2>¿Qué protege el derecho de autor?</h2>
+
+  <p>El derecho de autor protege las obras creadas por una persona (o empresa): fotografías, videos, música, textos, ilustraciones, entre otras. En Marketing, esto es especialmente importante porque se trabaja constantemente con contenido visual y sonoro.</p>
+
+  <p>Como regla general, el creador de una obra tiene derechos sobre ella desde el momento en que la crea, sin necesidad de registrarla. Usar la obra de otra persona sin permiso (aunque sea gratis o "solo para probar") puede traer consecuencias: desde que la plataforma silencie o elimine el contenido, hasta reclamos legales.</p>
+
+  <div class="callout amarillo">
+    <div class="callout-label">💡 No es solo música</div>
+    <p>Los derechos de autor también aplican a fotos encontradas en Google, ilustraciones descargadas de cualquier sitio, y fuentes tipográficas (algunas son de pago exclusivamente comercial).</p>
+  </div>
+</section>
+
+<!-- S2 -->
+<section class="seccion" id="s2">
+  <div class="seccion-num">Sección 02</div>
+  <h2>Tipos de licencias</h2>
+
+  <table class="atajos-tabla">
+    <thead>
+      <tr>
+        <th>Licencia</th>
+        <th>Qué permite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Todos los derechos reservados</td><td>No se puede usar sin permiso explícito del autor</td></tr>
+      <tr><td>Creative Commons (CC)</td><td>Distintos niveles de uso libre, según la variante (algunas exigen atribución, otras prohíben uso comercial)</td></tr>
+      <tr><td>Dominio público</td><td>La obra ya no tiene restricciones de derechos (por antigüedad o renuncia del autor)</td></tr>
+      <tr><td>Licencia comercial / de stock</td><td>Se paga por el derecho de uso, con condiciones específicas según el plan contratado</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">💡 Leer la letra chica</div>
+    <p>Dentro de Creative Commons hay variantes muy distintas entre sí (algunas prohíben el uso comercial, otras exigen atribución). Conviene siempre revisar la licencia específica antes de asumir que algo es "libre".</p>
+  </div>
+</section>
+
+<!-- S3 -->
+<section class="seccion" id="s3">
+  <div class="seccion-num">Sección 03</div>
+  <h2>Bancos de contenido libre de derechos</h2>
+
+  <p>Existen plataformas que ofrecen fotos, videos y música con licencias claras para uso en proyectos de Marketing:</p>
+
+  <ul class="ul-custom">
+    <li><strong>Fotos e ilustraciones:</strong> bancos con planes gratuitos y pagos, cada uno con su propia licencia de uso</li>
+    <li><strong>Música:</strong> bibliotecas de audio libre de regalías, algunas integradas directamente dentro de los propios editores de video y redes sociales</li>
+    <li><strong>Fuentes tipográficas:</strong> catálogos con licencias claras para uso comercial gratuito</li>
+  </ul>
+
+  <div class="callout verde">
+    <div class="callout-label">✅ Buen hábito</div>
+    <p>Aunque el uso sea gratuito, conviene guardar siempre un registro de dónde se obtuvo cada recurso (foto, música, fuente) y bajo qué licencia, por si en el futuro hace falta demostrarlo.</p>
+  </div>
+</section>
+
+<!-- S4 -->
+<section class="seccion" id="s4">
+  <div class="seccion-num">Sección 04</div>
+  <h2>Uso de música en redes sociales</h2>
+
+  <p>Cada plataforma tiene sus propias reglas respecto a la música:</p>
+
+  <div class="concepto">
+    <div class="concepto-titulo">Biblioteca de audio de la plataforma</div>
+    <p>La mayoría de las redes sociales ofrecen su propia biblioteca de música con licencia ya resuelta para usar dentro de esa plataforma específicamente.</p>
+  </div>
+
+  <div class="concepto">
+    <div class="concepto-titulo">Música con copyright sin licencia</div>
+    <p>Usar una canción popular sin el permiso o la licencia correspondiente puede hacer que la plataforma silencie el audio del video, restrinja su alcance, o directamente lo elimine.</p>
+  </div>
+
+  <div class="callout amarillo">
+    <div class="callout-label">💡 Para uso comercial</div>
+    <p>Si el contenido es para una marca o campaña paga, es especialmente importante usar música con licencia comercial explícita, no solo "libre de copyright para YouTube".</p>
+  </div>
+</section>
+
+<!-- S5 -->
+<section class="seccion" id="s5">
+  <div class="seccion-num">Sección 05</div>
+  <h2>Uso de imagen de terceros</h2>
+
+  <p>Más allá de la música y las fotos, hay un derecho adicional a tener en cuenta: el derecho a la propia imagen de las personas.</p>
+
+  <ul class="ul-custom">
+    <li><strong>Derecho a la imagen:</strong> toda persona tiene derecho a decidir si su imagen se usa públicamente o no</li>
+    <li><strong>Consentimiento informado:</strong> al fotografiar o filmar personas para un proyecto de Marketing, conviene contar con su autorización, especialmente si el contenido es comercial</li>
+    <li><strong>Menores de edad:</strong> requieren siempre autorización expresa de madres, padres o tutores</li>
+  </ul>
+
+  <div class="callout">
+    <div class="callout-label">💡 En la práctica profesional</div>
+    <p>Las producciones profesionales suelen usar un documento simple de autorización de imagen (release), firmado por cada persona que aparece en el contenido antes de publicarlo.</p>
+  </div>
+</section>
+
+<!-- S6 EJERCICIOS -->
+<section class="seccion" id="s6">
+  <div class="seccion-num">Sección 06</div>
+  <h2>Ejercicios de la clase</h2>
+
+  <div class="ejercicio">
+    <div class="ejercicio-header">
+      <span class="ej-badge">Ejercicio 1</span>
+      <h4>Auditoría de derechos de tu proyecto</h4>
+    </div>
+    <div class="ejercicio-body">
+      <p>Vas a revisar el material que usaste a lo largo del curso, verificando sus licencias.</p>
+      <div class="pasos">
+        <div class="paso"><span class="paso-n"></span><p>Listá qué música, fotos o videos de terceros usaste en los ejercicios anteriores (si usaste alguno).</p></div>
+        <div class="paso"><span class="paso-n"></span><p>Para cada uno, indicá de dónde lo obtuviste y bajo qué licencia.</p></div>
+        <div class="paso"><span class="paso-n"></span><p>Guardá el documento como <code>tuapellido_auditoria_derechos.docx</code></p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <div class="ejercicio-header">
+      <span class="ej-badge">Ejercicio 2</span>
+      <h4>Caso práctico</h4>
+    </div>
+    <div class="ejercicio-body">
+      <p>Vas a analizar un caso hipotético y proponer la solución correcta según lo visto en clase.</p>
+      <div class="pasos">
+        <div class="paso"><span class="paso-n"></span><p>Leé el siguiente caso: "Una marca quiere usar una canción popular de un artista conocido en su próximo video publicitario para redes sociales."</p></div>
+        <div class="paso"><span class="paso-n"></span><p>Explicá qué problema de derechos de autor tiene esta idea y proponé al menos 2 alternativas correctas.</p></div>
+        <div class="paso"><span class="paso-n"></span><p>Guardá tu respuesta como <code>tuapellido_caso_practico.docx</code></p></div>
+      </div>
+      <div class="entrega">
+        <span class="entrega-icon">📁</span>
+        <div>
+          <div class="entrega-label">Entrega de la clase</div>
+          <p>Subí a Google Classroom: <code>tuapellido_auditoria_derechos.docx</code> + <code>tuapellido_caso_practico.docx</code></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="resumen">
+  <h3>✅ Lo que aprendiste hoy</h3>
+  <ul>
+    <li>Qué protege el derecho de autor y por qué importa en Marketing</li>
+    <li>Los distintos tipos de licencias (Creative Commons, dominio público, comercial)</li>
+    <li>Dónde encontrar contenido libre de derechos de forma confiable</li>
+    <li>Las reglas de uso de música en redes sociales</li>
+    <li>El derecho a la propia imagen y cuándo pedir autorización</li>
+  </ul>
+</div>
+</main>
+
+<footer>
+  Informática Aplicada II · CTT Marketing · Plan 2019 · Docente: Gianna Giupponi
+</footer>
+
+</body>
+</html>
