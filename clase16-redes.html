@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netiquette. Cierre del curso</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f4ef;
+  --negro: #111010;
+  --acento: #d94f2b;
+  --acento2: #2b6dd9;
+  --amarillo: #f0c419;
+  --gris: #6b6560;
+  --gris-claro: #e8e3db;
+  --blanco: #ffffff;
+  --verde: #2a7a4b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--negro);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* NAV */
+.topbar {
+  background: var(--negro);
+  color: #aaa;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  letter-spacing: 0.05em;
+}
+.topbar a { color: var(--amarillo); text-decoration: none; }
+.topbar-links { display: flex; gap: 20px; }
+.topbar-links a { color: #aaa; text-decoration: none; transition: color 0.2s; }
+.topbar-links a:hover { color: var(--amarillo); }
+
+/* HERO */
+.hero {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 72px 40px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '4';
+  position: absolute;
+  right: 32px;
+  bottom: -40px;
+  font-family: 'Syne', sans-serif;
+  font-size: 220px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+.clase-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 5px 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 800;
+  line-height: 1.05;
+  max-width: 680px;
+  margin-bottom: 16px;
+}
+.hero h1 em { color: var(--amarillo); font-style: normal; }
+.hero-sub {
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 300;
+  max-width: 520px;
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.hm {
+  border-top: 2px solid var(--acento);
+  padding-top: 8px;
+  min-width: 100px;
+}
+.hm-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.1em; }
+.hm-val { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--blanco); margin-top: 2px; }
+
+/* ÍNDICE */
+.indice-wrap {
+  background: var(--gris-claro);
+  border-left: 4px solid var(--acento);
+  padding: 28px 32px;
+  margin: 48px 40px;
+}
+.indice-wrap h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gris);
+  margin-bottom: 12px;
+}
+.indice-wrap ol {
+  padding-left: 20px;
+}
+.indice-wrap ol li {
+  margin-bottom: 4px;
+}
+.indice-wrap a {
+  color: var(--acento2);
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Source Serif 4', serif;
+  transition: color 0.2s;
+}
+.indice-wrap a:hover { color: var(--acento); text-decoration: underline; }
+
+/* CONTENT */
+.content {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px 100px;
+}
+
+/* SECCIONES */
+.seccion {
+  margin-top: 64px;
+}
+.seccion-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--acento);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+.seccion h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--negro);
+  border-bottom: 3px solid var(--negro);
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+}
+.seccion h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--negro);
+  margin: 28px 0 10px;
+}
+.seccion p { margin-bottom: 16px; color: #2a2520; }
+
+/* CALLOUT */
+.callout {
+  border-left: 4px solid var(--acento2);
+  background: #eef3fd;
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 0 4px 4px 0;
+}
+.callout.amarillo { border-color: var(--amarillo); background: #fffbea; }
+.callout.verde { border-color: var(--verde); background: #edf7f1; }
+.callout.rojo { border-color: var(--acento); background: #fdeee9; }
+.callout-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--acento2);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.callout.amarillo .callout-label { color: #9a7000; }
+.callout.verde .callout-label { color: var(--verde); }
+.callout.rojo .callout-label { color: var(--acento); }
+.callout p { margin-bottom: 0; font-size: 15px; }
+
+/* TABLA */
+.atajos-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 32px;
+  font-size: 14px;
+}
+.atajos-tabla thead tr {
+  background: var(--negro);
+  color: var(--blanco);
+}
+.atajos-tabla thead th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 14px;
+  text-align: left;
+}
+.atajos-tabla tbody tr:nth-child(even) { background: var(--gris-claro); }
+.atajos-tabla tbody tr:hover { background: #e0dbd3; }
+.atajos-tabla td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+.atajos-tabla td:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+kbd {
+  display: inline-block;
+  background: var(--negro);
+  color: var(--amarillo);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border-bottom: 2px solid #444;
+  white-space: nowrap;
+}
+
+/* LISTA */
+ul.ul-custom {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 24px;
+}
+ul.ul-custom li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  border-bottom: 1px solid var(--gris-claro);
+  font-size: 15.5px;
+}
+ul.ul-custom li:last-child { border-bottom: none; }
+ul.ul-custom li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--acento);
+  font-size: 13px;
+}
+
+/* CONCEPTO BOX */
+.concepto {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 22px 24px;
+  margin: 20px 0;
+}
+.concepto-titulo {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--amarillo);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.concepto p { color: #ccc; font-size: 14.5px; margin-bottom: 0; line-height: 1.65; }
+
+/* PASO A PASO */
+.pasos {
+  counter-reset: paso;
+  margin: 20px 0;
+}
+.paso {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+}
+.paso-n {
+  counter-increment: paso;
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.paso-n::before { content: counter(paso); }
+.paso p { margin-bottom: 0; font-size: 15px; line-height: 1.6; }
+
+/* EJERCICIO */
+.ejercicio {
+  border: 2px solid var(--negro);
+  margin: 32px 0;
+}
+.ejercicio-header {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ej-badge {
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  flex-shrink: 0;
+}
+.ejercicio-header h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+.ejercicio-body { padding: 20px 20px 24px; }
+.ejercicio-body p { font-size: 15px; margin-bottom: 12px; }
+
+/* ENTREGA */
+.entrega {
+  background: var(--acento2);
+  color: var(--blanco);
+  padding: 16px 22px;
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.entrega-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.entrega-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 4px;
+}
+.entrega p { font-size: 14px; color: rgba(255,255,255,0.9); margin-bottom: 0; }
+.entrega code {
+  background: rgba(0,0,0,0.3);
+  padding: 1px 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+/* RESUMEN FINAL */
+.resumen {
+  background: var(--amarillo);
+  padding: 28px 32px;
+  margin-top: 48px;
+}
+.resumen h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--negro);
+  margin-bottom: 12px;
+}
+.resumen ul { padding-left: 20px; }
+.resumen li { font-size: 14.5px; color: #2a2000; margin-bottom: 4px; }
+
+/* FOOTER */
+footer {
+  background: var(--negro);
+  color: #555;
+  text-align: center;
+  padding: 28px 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+footer span { color: var(--amarillo); }
+
+@media (max-width: 600px) {
+  .hero, .content { padding-left: 20px; padding-right: 20px; }
+  .indice-wrap { margin: 32px 20px; }
+  .topbar-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span><a href="index.html">← Inicio</a></span>
+</div>
+
+<header class="hero">
+  
+  <h1>Netiquette</h1>
+  <p class="hero-sub">CTT Marketing - Informática Aplicada II</p>
+  <div class="hero-meta">
+    <div class="hm">
+      
+  </div>
+</header>
+
+<div class="indice-wrap">
+  <h3>Contenidos</h3>
+  <ol>
+    <li><a href="#s1">¿Qué es la netiquette?</a></li>
+    <li><a href="#s2">Buenas prácticas de comunicación online</a></li>
+    <li><a href="#s3">Gestión de comentarios y crisis</a></li>
+    <li><a href="#s4">Netiquette dentro de una marca</a></li>
+ 
+    <li><a href="#s6">Ejercicio</a></li>
+  </ol>
+</div>
+
+<main class="content">
+
+<!-- S1 -->
+<section class="seccion" id="s1">
+  <div class="seccion-num">Sección 01</div>
+  <h2>¿Qué es la netiquette?</h2>
+
+  <p>La netiquette es el conjunto de normas de comportamiento y buena educación aplicadas a la comunicación en Internet. El término combina "net" (red) y "etiqueta" (normas de comportamiento social).</p>
+
+  <p>Para una marca, la netiquette no es un detalle menor: cómo se comunica en redes sociales construye (o destruye) su reputación, muchas veces de forma pública y permanente.</p>
+
+  <div class="callout amarillo">
+    <div class="callout-label">💡 Todo queda registrado</div>
+    <p>A diferencia de una conversación cara a cara, casi todo lo que se publica o se comenta en Internet puede quedar registrado, ser capturado en pantalla y compartido, incluso después de borrarlo.</p>
+  </div>
+</section>
+
+<!-- S2 -->
+<section class="seccion" id="s2">
+  <div class="seccion-num">Sección 02</div>
+  <h2>Buenas prácticas de comunicación online</h2>
+
+  <ul class="ul-custom">
+    <li><strong>Pensar antes de publicar:</strong> releer un comentario o publicación antes de enviarlo, imaginando cómo se leería sin el tono de voz</li>
+    <li><strong>Respetar mayúsculas:</strong> escribir todo en mayúsculas se interpreta como gritar</li>
+    <li><strong>Responder con respeto:</strong> incluso ante críticas o comentarios negativos, mantener un tono profesional</li>
+    <li><strong>Citar fuentes:</strong> dar crédito cuando se comparte contenido de otra persona o marca</li>
+    <li><strong>Cuidar la ortografía:</strong> especialmente en comunicaciones de marca, afecta directamente la percepción de profesionalismo</li>
+  </ul>
+
+  <div class="callout">
+    <div class="callout-label">💡 La regla de las 24 horas</div>
+    <p>Ante un comentario que genera bronca, muchos community managers profesionales aplican la regla de esperar antes de responder: da tiempo a pensar una respuesta profesional en vez de una reacción impulsiva.</p>
+  </div>
+</section>
+
+<!-- S3 -->
+<section class="seccion" id="s3">
+  <div class="seccion-num">Sección 03</div>
+  <h2>Gestión de comentarios y crisis</h2>
+
+  <div class="concepto">
+    <div class="concepto-titulo">Comentarios negativos legítimos</div>
+    <p>Cuando un cliente tiene un reclamo real, lo mejor es responder con empatía en público, y mover la resolución detallada a un canal privado (mensaje directo, email).</p>
+  </div>
+
+  <div class="concepto">
+    <div class="concepto-titulo">Trolls y comentarios de mala fe</div>
+    <p>No siempre hace falta responder a todos los comentarios. A veces la mejor respuesta profesional es no alimentar una discusión que no busca una solución real.</p>
+  </div>
+
+  <div class="concepto">
+    <div class="concepto-titulo">Crisis de reputación</div>
+    <p>Cuando un error de la marca se viraliza negativamente, lo recomendado es reconocer el error rápido, sin excusas defensivas, y comunicar con claridad qué se va a hacer al respecto.</p>
+  </div>
+
+  <div class="callout verde">
+    <div class="callout-label">✅ Regla de oro</div>
+    <p>Nunca borrar comentarios negativos legítimos solo porque son incómodos: eso suele generar más desconfianza que el comentario original.</p>
+  </div>
+</section>
+
+<!-- S4 -->
+<section class="seccion" id="s4">
+  <div class="seccion-num">Sección 04</div>
+  <h2>Netiquette dentro de una marca</h2>
+
+  <p>Más allá de la comunicación hacia afuera, la netiquette también aplica a la comunicación interna del equipo de Marketing.</p>
+
+  <ul class="ul-custom">
+    <li><strong>Tono de marca consistente:</strong> quien sea que gestione las redes debe seguir la misma "voz" definida para la marca</li>
+    <li><strong>Aprobación de contenido:</strong> tener un proceso claro de revisión antes de publicar, para evitar errores</li>
+    <li><strong>Manual de estilo:</strong> documentar cómo se debe (y no se debe) comunicar la marca, para que cualquier persona del equipo lo pueda seguir</li>
+  </ul>
+</section>
+<!-- S5 EJERCICIO -->
+<section class="seccion" id="s6">
+  <div class="seccion-num">Sección 05</div>
+  <h2>Ejercicio:</h2>
+
+  <div class="ejercicio">
+    <div class="ejercicio-header">
+      <span class="ej-badge">Cierre del curso</span>
+      <h4>Portfolio final de la marca</h4>
+    </div>
+    <div class="ejercicio-body">
+   
+      <div class="pasos">
+        <div class="paso"><span class="paso-n"></span><p>En equipos, se les asignará un caso relacionado con una situación de comunicación digital de una marca.
+
+Cada equipo deberá analizar el caso y elaborar una respuesta aplicando las normas de netiquette trabajadas en clase.</p></div>
+        <div class="paso"><span class="paso-n"></span><p>Deberán:
+
+
+<ul>
+  <li>Identificar el problema.</li>
+  <li>Analizar cómo debería actuar la marca.</li>
+  <li>Elaborar una respuesta adecuada.</li>
+  <li>Explicar qué normas de netiquette aplicaron y por qué.</li>
+  <li>Presentar la resolución del caso frente al resto de la clase.</li>
+</ul>
+</div>
+        <div class="paso"><span class="paso-n"></span><p>Guardá el portfolio como <code>tuapellido_portfolio_final.docx</code> (o presentación)</p></div>
+      </div>
+      <div class="entrega">
+        <span class="entrega-icon">📁</span>
+        <div>
+          <div class="entrega-label">Entrega</div>
+          <p>Subí a Moodle: <code>tuapellido_ejercicio.PDF</code></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="resumen">
+  <h3>✅ Lo que aprendiste hoy</h3>
+  <ul>
+    <li>Qué es la netiquette y por qué importa para una marca</li>
+    <li>Buenas prácticas de comunicación online</li>
+    <li>Cómo gestionar comentarios negativos y crisis de reputación</li>
+    <li>La importancia de la coherencia de voz dentro de una marca</li>
+    
+  </ul>
+</div>
+</main>
+
+<footer>
+  Informática Aplicada II · <span>CTT Marketing · Plan 2019</span> · Docente: Gianna Giupponi
+</footer>
+
+</body>
+</html>
