@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edición de Video II y Publicación</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f4ef;
+  --negro: #111010;
+  --acento: #d94f2b;
+  --acento2: #2b6dd9;
+  --amarillo: #f0c419;
+  --gris: #6b6560;
+  --gris-claro: #e8e3db;
+  --blanco: #ffffff;
+  --verde: #2a7a4b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--negro);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* NAV */
+.topbar {
+  background: var(--negro);
+  color: #aaa;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  letter-spacing: 0.05em;
+}
+.topbar a { color: var(--amarillo); text-decoration: none; }
+.topbar-links { display: flex; gap: 20px; }
+.topbar-links a { color: #aaa; text-decoration: none; transition: color 0.2s; }
+.topbar-links a:hover { color: var(--amarillo); }
+
+/* HERO */
+.hero {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 72px 40px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '03';
+  position: absolute;
+  right: 32px;
+  bottom: -40px;
+  font-family: 'Syne', sans-serif;
+  font-size: 220px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+.clase-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 5px 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 800;
+  line-height: 1.05;
+  max-width: 680px;
+  margin-bottom: 16px;
+}
+.hero h1 em { color: var(--amarillo); font-style: normal; }
+.hero-sub {
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 300;
+  max-width: 520px;
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.hm {
+  border-top: 2px solid var(--acento);
+  padding-top: 8px;
+  min-width: 100px;
+}
+.hm-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.1em; }
+.hm-val { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--blanco); margin-top: 2px; }
+
+/* ÍNDICE */
+.indice-wrap {
+  background: var(--gris-claro);
+  border-left: 4px solid var(--acento);
+  padding: 28px 32px;
+  margin: 48px 40px;
+}
+.indice-wrap h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gris);
+  margin-bottom: 12px;
+}
+.indice-wrap ol {
+  padding-left: 20px;
+}
+.indice-wrap ol li {
+  margin-bottom: 4px;
+}
+.indice-wrap a {
+  color: var(--acento2);
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Source Serif 4', serif;
+  transition: color 0.2s;
+}
+.indice-wrap a:hover { color: var(--acento); text-decoration: underline; }
+
+/* CONTENT */
+.content {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px 100px;
+}
+
+/* SECCIONES */
+.seccion {
+  margin-top: 64px;
+}
+.seccion-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--acento);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+.seccion h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--negro);
+  border-bottom: 3px solid var(--negro);
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+}
+.seccion h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--negro);
+  margin: 28px 0 10px;
+}
+.seccion p { margin-bottom: 16px; color: #2a2520; }
+
+/* CALLOUT */
+.callout {
+  border-left: 4px solid var(--acento2);
+  background: #eef3fd;
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 0 4px 4px 0;
+}
+.callout.amarillo { border-color: var(--amarillo); background: #fffbea; }
+.callout.verde { border-color: var(--verde); background: #edf7f1; }
+.callout.rojo { border-color: var(--acento); background: #fdeee9; }
+.callout-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--acento2);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.callout.amarillo .callout-label { color: #9a7000; }
+.callout.verde .callout-label { color: var(--verde); }
+.callout.rojo .callout-label { color: var(--acento); }
+.callout p { margin-bottom: 0; font-size: 15px; }
+
+/* TABLA */
+.atajos-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 32px;
+  font-size: 14px;
+}
+.atajos-tabla thead tr {
+  background: var(--negro);
+  color: var(--blanco);
+}
+.atajos-tabla thead th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 14px;
+  text-align: left;
+}
+.atajos-tabla tbody tr:nth-child(even) { background: var(--gris-claro); }
+.atajos-tabla tbody tr:hover { background: #e0dbd3; }
+.atajos-tabla td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+.atajos-tabla td:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+kbd {
+  display: inline-block;
+  background: var(--negro);
+  color: var(--amarillo);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border-bottom: 2px solid #444;
+  white-space: nowrap;
+}
+
+/* LISTA */
+ul.ul-custom {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 24px;
+}
+ul.ul-custom li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  border-bottom: 1px solid var(--gris-claro);
+  font-size: 15.5px;
+}
+ul.ul-custom li:last-child { border-bottom: none; }
+ul.ul-custom li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--acento);
+  font-size: 13px;
+}
+
+/* CONCEPTO BOX */
+.concepto {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 22px 24px;
+  margin: 20px 0;
+}
+.concepto-titulo {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--amarillo);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.concepto p { color: #ccc; font-size: 14.5px; margin-bottom: 0; line-height: 1.65; }
+
+/* PASO A PASO */
+.pasos {
+  counter-reset: paso;
+  margin: 20px 0;
+}
+.paso {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+}
+.paso-n {
+  counter-increment: paso;
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.paso-n::before { content: counter(paso); }
+.paso p { margin-bottom: 0; font-size: 15px; line-height: 1.6; }
+
+/* EJERCICIO */
+.ejercicio {
+  border: 2px solid var(--negro);
+  margin: 32px 0;
+}
+.ejercicio-header {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ej-badge {
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  flex-shrink: 0;
+}
+.ejercicio-header h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+.ejercicio-body { padding: 20px 20px 24px; }
+.ejercicio-body p { font-size: 15px; margin-bottom: 12px; }
+
+/* ENTREGA */
+.entrega {
+  background: var(--acento2);
+  color: var(--blanco);
+  padding: 16px 22px;
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.entrega-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.entrega-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 4px;
+}
+.entrega p { font-size: 14px; color: rgba(255,255,255,0.9); margin-bottom: 0; }
+.entrega code {
+  background: rgba(0,0,0,0.3);
+  padding: 1px 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+/* RESUMEN FINAL */
+.resumen {
+  background: var(--amarillo);
+  padding: 28px 32px;
+  margin-top: 48px;
+}
+.resumen h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--negro);
+  margin-bottom: 12px;
+}
+.resumen ul { padding-left: 20px; }
+.resumen li { font-size: 14.5px; color: #2a2000; margin-bottom: 4px; }
+
+/* FOOTER */
+footer {
+  background: var(--negro);
+  color: #555;
+  text-align: center;
+  padding: 28px 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+footer span { color: var(--amarillo); }
+
+@media (max-width: 600px) {
+  .hero, .content { padding-left: 20px; padding-right: 20px; }
+  .indice-wrap { margin: 32px 20px; }
+  .topbar-links { display: none; }
+}
+
+/* FIGURAS */
+.figura { margin: 24px 0 32px; }
+.figura img { display: block; width: 100%; height: auto; border: 2px solid var(--negro); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span><a href="index.html">← Inicio</a></span>
+</div>
+
+<header class="hero">
+  <h1>Edición de Video II<br><em>y Publicación</em></h1>
+  <p class="hero-sub">CTT Marketing - Informática Aplicada II</p>
+</header>
+
+<div class="indice-wrap">
+  <h3>Contenidos</h3>
+  <ol>
+    <li><a href="#s1">Formatos de video y exportación</a></li>
+    <li><a href="#t2">Resolución de video</a></li>
+    <li><a href="#t3">Relación de aspecto</a></li>
+    <li><a href="#t4">Fotogramas por segundo (FPS)</a></li>
+    <li><a href="#t5">Compresión y tamaño del archivo</a></li>
+    <li><a href="#t6">Exportación del video</a></li>
+  </ol>
+</div>
+
+<main class="content">
+
+<!-- S1 -->
+<section class="seccion" id="s1">
+  <div class="seccion-num">Sección 01</div>
+  <h2>Formatos de video y exportación</h2>
+  <p>Cuando finalizamos la edición de un video, debemos guardarlo en un formato adecuado para su reproducción y distribución.</p>
+  <p>En marketing digital, la elección del formato es importante porque influye en la calidad de imagen, el tamaño del archivo y su compatibilidad con diferentes plataformas, como Instagram, TikTok, YouTube o sitios web.</p>
+
+  <h3 id="t1">1. Formatos de archivo de video</h3>
+  <p>Un formato de video es la manera en que se organiza y almacena la información audiovisual dentro de un archivo.</p>
+  <p>Los formatos más utilizados son:</p>
+  <table class="atajos-tabla">
+    <thead>
+      <tr><th>Formato</th><th>Características</th><th>Uso habitual</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>MP4</td><td>Buena calidad, tamaño reducido y amplia compatibilidad.</td><td>Redes sociales, páginas web y publicidad digital.</td></tr>
+      <tr><td>MOV</td><td>Contenedor utilizado especialmente en entornos Apple y producción audiovisual.</td><td>Edición y producción de video.</td></tr>
+      <tr><td>AVI</td><td>Formato antiguo que puede generar archivos grandes según la compresión utilizada.</td><td>Archivos y aplicaciones tradicionales.</td></tr>
+      <tr><td>WebM</td><td>Diseñado para reproducir videos de manera eficiente en la web.</td><td>Páginas web y contenido multimedia en navegadores.</td></tr>
+    </tbody>
+  </table>
+  <p>Para nuestros trabajos utilizaremos principalmente MP4, por su compatibilidad con la mayoría de los dispositivos y plataformas digitales.</p>
+
+  <h3 id="t2">2. Resolución de video</h3>
+  <p>La resolución indica la cantidad de píxeles que forman una imagen. Generalmente, una mayor resolución permite mostrar más detalles, aunque también puede aumentar el tamaño del archivo.</p>
+  <table class="atajos-tabla">
+    <thead>
+      <tr><th>Resolución</th><th>Nombre habitual</th><th>Características</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1280 × 720</td><td>HD (720p)</td><td>Calidad adecuada para contenidos sencillos.</td></tr>
+      <tr><td>1920 × 1080</td><td>Full HD (1080p)</td><td>Buena calidad para redes sociales y publicidad digital.</td></tr>
+      <tr><td>2560 × 1440</td><td>QHD (1440p)</td><td>Mayor nivel de detalle.</td></tr>
+      <tr><td>3840 × 2160</td><td>4K UHD</td><td>Alta definición, con mayor exigencia de almacenamiento y procesamiento.</td></tr>
+    </tbody>
+  </table>
+  <p>Para el proyecto publicitario del curso se recomienda trabajar en Full HD (1080p), siempre que los materiales originales tengan calidad suficiente.</p>
+
+  <h3 id="t3">3. Relación de aspecto</h3>
+  <p>La relación de aspecto es la proporción entre el ancho y el alto de un video.</p>
+  <p>Dependiendo de dónde se publique, puede resultar conveniente utilizar un formato horizontal, vertical o cuadrado.</p>
+  <figure class="figura">
+    <img src="data:image/webp;base64,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" alt="Relaciones de aspecto: horizontal 16:9 (1920×1080), vertical 9:16 (1080×1920) y cuadrado 1:1 (1080×1080)">
+  </figure>
+  <p>Ejemplos de aplicación:</p>
+  <ul class="ul-custom">
+    <li><strong>Horizontal (16:9):</strong> videos para YouTube, presentaciones y páginas web.</li>
+    <li><strong>Vertical (9:16):</strong> Reels de Instagram, TikTok y YouTube Shorts.</li>
+    <li><strong>Cuadrado (1:1):</strong> publicaciones en redes sociales y determinados anuncios digitales.</li>
+  </ul>
+  <p>La elección depende principalmente del público objetivo y de la plataforma donde se difundirá el contenido.</p>
+
+  <h3 id="t4">4. Fotogramas por segundo (FPS)</h3>
+  <p>Un video está formado por una sucesión de imágenes llamadas fotogramas. Los FPS indican cuántas imágenes se muestran por segundo.</p>
+  <table class="atajos-tabla">
+    <thead>
+      <tr><th>FPS</th><th>Características</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>24 FPS</td><td>Movimiento característico de muchas producciones cinematográficas.</td></tr>
+      <tr><td>30 FPS</td><td>Movimiento fluido, habitual en contenidos digitales y redes sociales.</td></tr>
+      <tr><td>60 FPS</td><td>Mayor fluidez, especialmente útil en escenas con movimientos rápidos.</td></tr>
+    </tbody>
+  </table>
+  <p>Para los videos publicitarios del curso, 30 FPS es una opción adecuada.</p>
+
+  <h3 id="t5">5. Compresión y tamaño del archivo</h3>
+  <p>La compresión permite reducir el espacio que ocupa un video.</p>
+  <p>Existen dos conceptos importantes:</p>
+  <ul class="ul-custom">
+    <li><strong>Códec:</strong> tecnología que comprime y descomprime el video. Un ejemplo habitual es H.264.</li>
+    <li><strong>Bitrate o tasa de bits:</strong> cantidad de información utilizada por segundo de video. Generalmente, un bitrate mayor permite conservar más calidad, pero también genera archivos más grandes.</li>
+  </ul>
+  <p>Para compartir videos en medios digitales se busca un equilibrio entre calidad visual y tamaño del archivo.</p>
+  <p>Una configuración habitual es MP4 con video H.264 y audio AAC.</p>
+
+  <h3 id="t6">6. Exportación del video</h3>
+  <p>Exportar significa generar el archivo final a partir del proyecto realizado en el editor.</p>
+  <p>Antes de exportar es importante comprobar que:</p>
+  <div class="pasos">
+    <div class="paso"><span class="paso-n"></span><p>Los clips estén organizados correctamente.</p></div>
+    <div class="paso"><span class="paso-n"></span><p>Los textos sean legibles.</p></div>
+    <div class="paso"><span class="paso-n"></span><p>La música y los sonidos tengan un volumen adecuado.</p></div>
+    <div class="paso"><span class="paso-n"></span><p>La duración cumpla con lo solicitado.</p></div>
+    <div class="paso"><span class="paso-n"></span><p>La resolución y la relación de aspecto sean apropiadas para la plataforma de destino.</p></div>
+  </div>
+
+  <p><strong>Configuración recomendada para el parcial</strong></p>
+  <table class="atajos-tabla">
+    <tbody>
+      <tr><td>Formato</td><td>MP4</td></tr>
+      <tr><td>Códec de video</td><td>H.264</td></tr>
+      <tr><td>Resolución</td><td>1080p</td></tr>
+      <tr><td>Fotogramas</td><td>30 FPS</td></tr>
+      <tr><td>Relación de aspecto</td><td>9:16 o 16:9</td></tr>
+      <tr><td>Duración</td><td>30 a 60 segundos</td></tr>
+    </tbody>
+  </table>
+</section>
+
+
+<div class="resumen">
+  <h3>✅ Lo que aprendiste hoy</h3>
+  <ul>
+    <li>Efectos visuales básicos: transiciones, velocidad y texto en pantalla</li>
+    <li>Cómo mezclar música y voz correctamente</li>
+    <li>Nociones básicas de corrección de color</li>
+    <li>Cómo exportar un video con la configuración adecuada</li>
+    <li>Las especificaciones técnicas de las principales plataformas de publicación</li>
+  </ul>
+</div>
+</main>
+
+<footer>
+  Informática Aplicada II · <span>CTT Marketing · Plan 2019</span> · Docente: Gianna Giupponi
+</footer>
+
+</body>
+</html>
