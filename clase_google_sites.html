@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Sites: qué es y cómo usarlo</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f4ef;
+  --negro: #111010;
+  --acento: #e91e8c;
+  --acento2: #2b6dd9;
+  --amarillo: #f0c419;
+  --gris: #6b6560;
+  --gris-claro: #e8e3db;
+  --blanco: #ffffff;
+  --verde: #2a7a4b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--negro);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* NAV */
+.topbar {
+  background: var(--negro);
+  color: #aaa;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  letter-spacing: 0.05em;
+}
+.topbar a { color: var(--amarillo); text-decoration: none; }
+.topbar-links { display: flex; gap: 20px; }
+.topbar-links a { color: #aaa; text-decoration: none; transition: color 0.2s; }
+.topbar-links a:hover { color: var(--amarillo); }
+
+/* HERO */
+.hero {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 72px 40px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '6';
+  position: absolute;
+  right: 32px;
+  bottom: -40px;
+  font-family: 'Syne', sans-serif;
+  font-size: 220px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+.clase-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 5px 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 800;
+  line-height: 1.05;
+  max-width: 680px;
+  margin-bottom: 16px;
+}
+.hero h1 em { color: var(--amarillo); font-style: normal; }
+.hero-sub {
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 300;
+  max-width: 520px;
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.hm {
+  border-top: 2px solid var(--acento);
+  padding-top: 8px;
+  min-width: 100px;
+}
+.hm-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.1em; }
+.hm-val { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--blanco); margin-top: 2px; }
+
+/* ÍNDICE */
+.indice-wrap {
+  background: var(--gris-claro);
+  border-left: 4px solid var(--acento);
+  padding: 28px 32px;
+  margin: 48px 40px;
+}
+.indice-wrap h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gris);
+  margin-bottom: 12px;
+}
+.indice-wrap ol {
+  padding-left: 20px;
+}
+.indice-wrap ol li {
+  margin-bottom: 4px;
+}
+.indice-wrap a {
+  color: var(--acento2);
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Source Serif 4', serif;
+  transition: color 0.2s;
+}
+.indice-wrap a:hover { color: var(--acento); text-decoration: underline; }
+
+/* CONTENT */
+.content {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px 100px;
+}
+
+/* SECCIONES */
+.seccion {
+  margin-top: 64px;
+}
+.seccion-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--acento);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+.seccion h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--negro);
+  border-bottom: 3px solid var(--negro);
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+}
+.seccion h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--negro);
+  margin: 28px 0 10px;
+}
+.seccion p { margin-bottom: 16px; color: #2a2520; }
+
+/* CALLOUT */
+.callout {
+  border-left: 4px solid var(--acento2);
+  background: #eef3fd;
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 0 4px 4px 0;
+}
+.callout.amarillo { border-color: var(--amarillo); background: #fffbea; }
+.callout.verde { border-color: var(--verde); background: #edf7f1; }
+.callout.rojo { border-color: var(--acento); background: #fdf1f8; }
+.callout-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--acento2);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.callout.amarillo .callout-label { color: #9a7000; }
+.callout.verde .callout-label { color: var(--verde); }
+.callout.rojo .callout-label { color: var(--acento); }
+.callout p { margin-bottom: 0; font-size: 15px; }
+
+/* TABLA */
+.atajos-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 32px;
+  font-size: 14px;
+}
+.atajos-tabla thead tr {
+  background: var(--negro);
+  color: var(--blanco);
+}
+.atajos-tabla thead th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 14px;
+  text-align: left;
+}
+.atajos-tabla tbody tr:nth-child(even) { background: var(--gris-claro); }
+.atajos-tabla tbody tr:hover { background: #e0dbd3; }
+.atajos-tabla td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+.atajos-tabla td:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+kbd {
+  display: inline-block;
+  background: var(--negro);
+  color: var(--amarillo);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border-bottom: 2px solid #444;
+  white-space: nowrap;
+}
+
+/* LISTA */
+ul.ul-custom {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 24px;
+}
+ul.ul-custom li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  border-bottom: 1px solid var(--gris-claro);
+  font-size: 15.5px;
+}
+ul.ul-custom li:last-child { border-bottom: none; }
+ul.ul-custom li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--acento);
+  font-size: 13px;
+}
+
+/* CONCEPTO BOX */
+.concepto {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 22px 24px;
+  margin: 20px 0;
+}
+.concepto-titulo {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--amarillo);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.concepto p { color: #ccc; font-size: 14.5px; margin-bottom: 0; line-height: 1.65; }
+
+/* PASO A PASO */
+.pasos {
+  counter-reset: paso;
+  margin: 20px 0;
+}
+.paso {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+}
+.paso-n {
+  counter-increment: paso;
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.paso-n::before { content: counter(paso); }
+.paso p { margin-bottom: 0; font-size: 15px; line-height: 1.6; }
+
+/* EJERCICIO */
+.ejercicio {
+  border: 2px solid var(--negro);
+  margin: 32px 0;
+}
+.ejercicio-header {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ej-badge {
+  background: var(--acento);
+  color: var(--blanco);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  flex-shrink: 0;
+}
+.ejercicio-header h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+.ejercicio-body { padding: 20px 20px 24px; }
+.ejercicio-body p { font-size: 15px; margin-bottom: 12px; }
+
+/* ENTREGA */
+.entrega {
+  background: var(--acento2);
+  color: var(--blanco);
+  padding: 16px 22px;
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.entrega-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.entrega-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 4px;
+}
+.entrega p { font-size: 14px; color: rgba(255,255,255,0.9); margin-bottom: 0; }
+.entrega code {
+  background: rgba(0,0,0,0.3);
+  padding: 1px 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+/* RESUMEN FINAL */
+.resumen {
+  background: var(--amarillo);
+  padding: 28px 32px;
+  margin-top: 48px;
+}
+.resumen h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--negro);
+  margin-bottom: 12px;
+}
+.resumen ul { padding-left: 20px; }
+.resumen li { font-size: 14.5px; color: #2a2000; margin-bottom: 4px; }
+
+/* FOOTER */
+footer {
+  background: var(--negro);
+  color: #555;
+  text-align: center;
+  padding: 28px 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+footer span { color: var(--amarillo); }
+
+@media (max-width: 600px) {
+  .hero, .content { padding-left: 20px; padding-right: 20px; }
+  .indice-wrap { margin: 32px 20px; }
+  .topbar-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span><a href="index.html">← Inicio</a></span>
+</div>
+
+<header class="hero">
+
+  <h1>Google Sites:<br>tu sitio web <em>sin código</em></h1>
+ 
+  
+   
+</header>
+
+<div class="indice-wrap">
+  <h3>Contenidos</h3>
+  <ol>
+    <li><a href="#s1">¿Qué es Google Sites y para qué sirve?</a></li>
+    <li><a href="#s2">Ventajas y límites</a></li>
+    <li><a href="#s3">Crear tu primer sitio</a></li>
+    <li><a href="#s4">El editor: Insertar, Páginas y Temas</a></li>
+    <li><a href="#s5">Agregar contenido</a></li>
+    <li><a href="#s6">Publicar y compartir</a></li>
+    <li><a href="#s7">Ejercicio</a></li>
+  </ol>
+</div>
+
+<main class="content">
+
+<section class="seccion" id="s1">
+  <div class="seccion-num">Sección 01</div>
+  <h2>¿Qué es Google Sites y para qué sirve?</h2>
+  <p>Google Sites es una herramienta gratuita de Google para crear sitios web desde el navegador, arrastrando y soltando elementos, sin escribir una línea de código. Se guarda en tu cuenta de Google y se integra con Drive, Docs, Forms, YouTube y Maps.</p>
+  <p>En Marketing se usa para:</p>
+  <ul class="ul-custom">
+    <li>Portfolio personal con tus trabajos y datos de contacto</li>
+    <li>Sitio de presentación de una marca o emprendimiento</li>
+    <li>Página de una campaña o evento (con formulario de inscripción)</li>
+    <li>Sitio de un proyecto en equipo, con documentos compartidos</li>
+  </ul>
+  <div class="callout amarillo">
+    <div class="callout-label">💡 Para pensar</div>
+    <p>Un sitio sin código no significa un sitio sin criterio: el orden de las páginas, los textos y las imágenes siguen siendo decisiones tuyas, y son lo que hace que el sitio funcione.</p>
+  </div>
+</section>
+
+<section class="seccion" id="s2">
+  <div class="seccion-num">Sección 02</div>
+  <h2>Ventajas y límites</h2>
+  <p>Antes de elegir una herramienta conviene saber qué ofrece y qué no.</p>
+  <table class="atajos-tabla">
+    <thead><tr><th>Aspecto</th><th>Google Sites</th><th>Sitio programado (HTML/CSS)</th></tr></thead>
+    <tbody>
+      <tr><td>Dificultad</td><td>Baja: se arma visualmente</td><td>Requiere conocer el código</td></tr>
+      <tr><td>Diseño</td><td>Limitado a las opciones del editor</td><td>Libertad total</td></tr>
+      <tr><td>Costo</td><td>Gratis, con hosting incluido</td><td>Puede requerir hosting y dominio</td></tr>
+      <tr><td>Trabajo en equipo</td><td>Edición compartida en tiempo real</td><td>Depende de las herramientas usadas</td></tr>
+      <tr><td>Ideal para</td><td>Sitios simples y proyectos rápidos</td><td>Sitios a medida y funciones complejas</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <div class="callout-label">💡 En la práctica</div>
+    <p>Google Sites no es para tiendas online complejas ni para diseños muy personalizados. Para un portfolio, un sitio informativo o una página de proyecto, es más que suficiente.</p>
+  </div>
+</section>
+
+<section class="seccion" id="s3">
+  <div class="seccion-num">Sección 03</div>
+  <h2>Crear tu primer sitio</h2>
+  <div class="pasos">
+    <div class="paso"><span class="paso-n"></span><p>Ingresá a <code>sites.google.com</code> con tu cuenta de Google.</p></div>
+    <div class="paso"><span class="paso-n"></span><p>En <strong>Iniciar un sitio nuevo</strong>, elegí <strong>Sitio en blanco</strong> o una plantilla de la galería.</p></div>
+    <div class="paso"><span class="paso-n"></span><p>Arriba a la izquierda, reemplazá "Sitio sin título" por el <strong>nombre del sitio</strong>.</p></div>
+    <div class="paso"><span class="paso-n"></span><p>En la página, hacé clic en el título y escribí el <strong>título de tu página de inicio</strong>.</p></div>
+    <div class="paso"><span class="paso-n"></span><p>Listo: Google Sites guarda los cambios automáticamente, no hay botón "Guardar".</p></div>
+  </div>
+  <div class="callout verde">
+    <div class="callout-label">✅ Buena práctica</div>
+    <p>Elegí un nombre corto y fácil de recordar: va a formar parte de la dirección web de tu sitio.</p>
+  </div>
+</section>
+
+<section class="seccion" id="s4">
+  <div class="seccion-num">Sección 04</div>
+  <h2>El editor: Insertar, Páginas y Temas</h2>
+  <p>A la derecha del editor hay un panel con tres pestañas. Con ellas armás todo el sitio.</p>
+  <div class="concepto">
+    <div class="concepto-titulo">Insertar — el contenido</div>
+    <p>Acá están todos los elementos que podés agregar: cuadros de texto, imágenes, botones, videos, mapas, archivos de Drive y más. También los <strong>diseños</strong>, que organizan la página en columnas.</p>
+  </div>
+  <div class="concepto">
+    <div class="concepto-titulo">Páginas — la estructura</div>
+    <p>Muestra el árbol de páginas del sitio. Desde ahí creás páginas nuevas, subpáginas y cambiás el orden arrastrándolas. El menú de navegación se arma solo a partir de esta lista.</p>
+  </div>
+  <div class="concepto">
+    <div class="concepto-titulo">Temas — el aspecto</div>
+    <p>Define los colores y tipografías de todo el sitio de una sola vez. Cambiar de tema cambia el aspecto de todas las páginas a la vez.</p>
+  </div>
+  <div class="callout">
+    <div class="callout-label">💡 Vista previa</div>
+    <p>El ícono del ojo, arriba a la derecha, te deja ver el sitio como lo verá el visitante, en computadora, tableta o celular. Usalo seguido.</p>
+  </div>
+</section>
+
+<section class="seccion" id="s5">
+  <div class="seccion-num">Sección 05</div>
+  <h2>Agregar contenido</h2>
+  <p>Hacé doble clic sobre el elemento deseado en la pestaña <strong>Insertar</strong>, o arrastralo hasta la página.</p>
+  <table class="atajos-tabla">
+    <thead><tr><th>Elemento</th><th>Para qué sirve</th><th>Cómo se usa</th></tr></thead>
+    <tbody>
+      <tr><td>Cuadro de texto</td><td>Títulos y párrafos</td><td>Escribí y dale formato desde la barra flotante</td></tr>
+      <tr><td>Imágenes</td><td>Fotos, logos, banners</td><td>Subila desde tu equipo o elegila de Drive</td></tr>
+      <tr><td>Botón</td><td>Llevar a otra página o enlace</td><td>Escribí el texto y pegá el enlace</td></tr>
+      <tr><td>Drive</td><td>Mostrar Docs, Slides, Sheets o PDF</td><td>Elegí el archivo y se inserta dentro de la página</td></tr>
+      <tr><td>YouTube</td><td>Videos</td><td>Buscá el video o pegá su enlace</td></tr>
+      <tr><td>Mapas</td><td>Ubicación de un local o evento</td><td>Buscá la dirección y se inserta el mapa</td></tr>
+      <tr><td>Formularios</td><td>Consultas, inscripciones, encuestas</td><td>Elegí un formulario de Google Forms ya creado</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rojo">
+    <div class="callout-label">⚠️ Cuidado con los archivos de Drive</div>
+    <p>Si insertás un archivo de Drive, los visitantes necesitan permiso para verlo. Revisá que el archivo esté compartido con quienes van a ver el sitio, o no se va a mostrar.</p>
+  </div>
+</section>
+
+<section class="seccion" id="s6">
+  <div class="seccion-num">Sección 06</div>
+  <h2>Publicar y compartir</h2>
+  <p>Mientras editás, el sitio es un borrador que solo ves vos. Para que otras personas lo vean hay que <strong>publicarlo</strong>.</p>
+  <h3>Publicar el sitio</h3>
+  <div class="pasos">
+    <div class="paso"><span class="paso-n"></span><p>Hacé clic en <strong>Publicar</strong>, arriba a la derecha.</p></div>
+    <div class="paso"><span class="paso-n"></span><p>Escribí el nombre de la <strong>dirección web</strong>. Quedará como <code>sites.google.com/view/tu-nombre</code>.</p></div>
+    <div class="paso"><span class="paso-n"></span><p>Revisá quién puede ver el sitio y confirmá con <strong>Publicar</strong>.</p></div>
+    <div class="paso"><span class="paso-n"></span><p>Copiá el enlace y probalo en una ventana de incógnito para ver lo que ve un visitante.</p></div>
+  </div>
+  <h3>Compartir la edición</h3>
+  <p>Publicar y compartir son cosas distintas. Para que un compañero pueda <em>editar</em> el sitio, usá el ícono <strong>Compartir con otros</strong> (la persona con el signo +) y agregá su correo como editor.</p>
+  <div class="callout amarillo">
+    <div class="callout-label">💡 Después de publicar</div>
+    <p>Si hacés cambios, no se ven en la dirección pública hasta que vuelvas a presionar <strong>Publicar</strong>. Los nombres de los botones pueden variar levemente según la versión de Google Sites.</p>
+  </div>
+</section>
+
+<section class="seccion" id="s7">
+  <div class="seccion-num">Sección 07</div>
+  <h2>Ejercicios de la clase</h2>
+
+  <div class="ejercicio">
+    <div class="ejercicio-header">
+      <span class="ej-badge">Ejercicio 1</span>
+      <h4>Sitio web comercial con Google Sites</h4>
+    </div>
+    <div class="ejercicio-body">
+      <h3>Consigna</h3>
+      <p>Una empresa o emprendimiento necesita mejorar su presencia digital. Deberás planificar, diseñar y publicar un sitio web en Google Sites, integrando piezas gráficas originales realizadas en Adobe Photoshop y aplicando los contenidos trabajados sobre público objetivo, identidad visual, marketing digital y SEO. Podés elegir un emprendimiento real o ficticio.</p>
+
+      <h3>Parte 1. Planificación del proyecto (2 puntos)</h3>
+      <ul class="ul-custom">
+        <li>Nombre del emprendimiento y breve descripción de su actividad.</li>
+        <li>Público objetivo: edad, intereses, necesidades y características principales.</li>
+        <li>Objetivo del sitio: qué acción se busca que realicen los visitantes.</li>
+        <li>Identidad visual: colores, tipografías y estilo elegido, con breve justificación.</li>
+      </ul>
+
+      <h3>Parte 2. Producción gráfica en Photoshop (3 puntos)</h3>
+      <p>Todas las piezas gráficas principales del sitio deberán ser diseñadas o intervenidas en Photoshop, manteniendo una identidad visual coherente. Como mínimo, realizá:</p>
+      <ul class="ul-custom">
+        <li>Un logotipo o identificador visual del emprendimiento.</li>
+        <li>Un banner o imagen de portada para la página de inicio.</li>
+        <li>Dos piezas promocionales diferentes (por ejemplo, una oferta y una novedad) para la página de promociones.</li>
+      </ul>
+      <p><strong>Requisitos:</strong> trabajar con capas y textos editables; cuidar la legibilidad, la composición, el contraste y la resolución. Guardar cada diseño en formato editable <code>.psd</code> y exportar su versión final en <code>.png</code> o <code>.jpg</code>. Incorporar las versiones exportadas en Google Sites. Si se utilizan imágenes de terceros, respetar sus condiciones de uso.</p>
+
+      <h3>Parte 3. Creación del sitio en Google Sites (5 puntos)</h3>
+      <p>El sitio debe tener un menú de navegación claro y, como mínimo, las siguientes cinco páginas:</p>
+      <div class="pasos">
+        <div class="paso"><span class="paso-n"></span><p><strong>Inicio:</strong> nombre, logotipo creado en Photoshop, eslogan, descripción, banner propio y botón de llamada a la acción.</p></div>
+        <div class="paso"><span class="paso-n"></span><p><strong>Productos o servicios:</strong> al menos tres productos o servicios, cada uno con imagen, nombre, descripción y precio cuando corresponda.</p></div>
+        <div class="paso"><span class="paso-n"></span><p><strong>Sobre nosotros:</strong> presentación o historia, misión, valores y diferenciación del emprendimiento.</p></div>
+        <div class="paso"><span class="paso-n"></span><p><strong>Novedades o promociones:</strong> al menos dos publicaciones o promociones que incorporen las dos piezas diseñadas en Photoshop y un llamado a la acción.</p></div>
+        <div class="paso"><span class="paso-n"></span><p><strong>Contacto:</strong> correo, enlaces a redes sociales, ubicación si corresponde y un formulario de Google Forms insertado en el sitio.</p></div>
+      </div>
+
+      <h3>Parte 4. Marketing digital y SEO (1 punto)</h3>
+      <p>Identificá tres palabras clave e integralas naturalmente en los textos o títulos. Utilizá una navegación intuitiva, al menos dos llamados a la acción y una identidad visual consistente. Revisá la vista previa para computadora y celular.</p>
+
+      <h3>Parte 5. Publicación y entrega (1 punto)</h3>
+      <p>Publicá el sitio y verificá que el enlace pueda abrirse, que las imágenes carguen y que funcionen el menú, los botones y el formulario. Entregá:</p>
+      <ul class="ul-custom">
+        <li>El enlace público de Google Sites (también escrito en un archivo <code>ENLACE_SITIO.txt</code> dentro del comprimido).</li>
+        <li>Un único archivo <code>.zip</code> o <code>.rar</code> con el documento de planificación, todos los archivos <code>.psd</code> originales y todas las piezas finales exportadas (<code>.png</code>/<code>.jpg</code>), incluidas las que aparecen en el sitio.</li>
+      </ul>
+      <p>Estructura sugerida del archivo comprimido: <code>Planificacion.pdf</code> o <code>.docx</code> / <code>Photoshop_PSD</code> / <code>Piezas_Exportadas</code> / <code>ENLACE_SITIO.txt</code>.</p>
+
+      <h3>Rúbrica de evaluación</h3>
+      <table class="atajos-tabla">
+        <thead><tr><th>Criterio</th><th>Puntos</th></tr></thead>
+        <tbody>
+          <tr><td>Planificación, público objetivo e identidad visual</td><td>2</td></tr>
+          <tr><td>Piezas de Photoshop: logo, banner, dos promociones; editables y exportaciones</td><td>3</td></tr>
+          <tr><td>Sitio Google Sites: cinco páginas completas y contenido pertinente</td><td>5</td></tr>
+          <tr><td>Marketing digital, SEO y navegación</td><td>1</td></tr>
+          <tr><td>Publicación y entrega completa (.zip/.rar + enlace)</td><td>1</td></tr>
+          <tr><td>TOTAL</td><td>12</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout rojo">
+        <div class="callout-label">⚠️ Importante</div>
+        <p>No alcanza con insertar imágenes encontradas en Internet. Las piezas solicitadas deben evidenciar trabajo propio en Photoshop y entregarse en formato editable. Un sitio sin enlace accesible o sin archivos gráficos editables tendrá incompleta la entrega correspondiente.</p>
+      </div>
+    </div>
+  </div>
+
+  
+</section>
+
+
+
+</main>
+
+<footer>
+  Informática Aplicada II · <span>CTT Marketing · Plan 2019</span> · Docente: Gianna Giupponi
+</footer>
+
+</body>
+</html>
